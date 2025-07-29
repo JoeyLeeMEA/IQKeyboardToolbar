@@ -316,17 +316,19 @@ private extension IQKeyboardExtension where Base: IQTextInputView {
             // Flexible space
             items.append(IQBarButtonItem.flexibleBarButtonItem)
 
-            // Title button
-            toolbar.titleBarButton.title = title
-            toolbar.titleBarButton.accessibilityLabel = titleAccessibilityLabel
-            toolbar.titleBarButton.accessibilityIdentifier = titleAccessibilityLabel
+            if title != nil {
+                // Title button
+                toolbar.titleBarButton.title = title
+                toolbar.titleBarButton.accessibilityLabel = titleAccessibilityLabel
+                toolbar.titleBarButton.accessibilityIdentifier = titleAccessibilityLabel
 
-            toolbar.titleBarButton.customView?.frame = .zero
+                toolbar.titleBarButton.customView?.frame = .zero
 
-            items.append(toolbar.titleBarButton)
+                items.append(toolbar.titleBarButton)
 
-            // Flexible space
-            items.append(IQBarButtonItem.flexibleBarButtonItem)
+                // Flexible space
+                items.append(IQBarButtonItem.flexibleBarButtonItem)
+            }
         }
 
         if !toolbar.additionalTrailingItems.isEmpty {
