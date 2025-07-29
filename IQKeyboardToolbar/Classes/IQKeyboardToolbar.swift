@@ -160,7 +160,11 @@ import UIKit
 
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
         var sizeThatFit: CGSize = super.sizeThatFits(size)
-        sizeThatFit.height = 44
+        if #available(iOS 26.0, *) {
+            sizeThatFit.height = 48        
+        } else {
+            sizeThatFit.height = 44
+        }        
         return sizeThatFit
     }
 
