@@ -62,6 +62,8 @@ import UIKit
 
     public var action: Selector?  // action for bar button item. Usually 'doneAction:(IQBarButtonItem*)item'.
 
+    public var style: UIBarButtonItem.Style?
+
     public override var accessibilityLabel: String? { didSet { } } // Accessibility related labels
 
     public func apply(on oldBarButtonItem: IQBarButtonItem, target: AnyObject?) -> IQBarButtonItem {
@@ -91,6 +93,11 @@ import UIKit
             newBarButtonItem.isEnabled = oldBarButtonItem.isEnabled
             newBarButtonItem.tag = oldBarButtonItem.tag
         }
+
+        if let style {
+            newBarButtonItem.style = style
+        }
+
         return newBarButtonItem
     }
 }
